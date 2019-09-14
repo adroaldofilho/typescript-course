@@ -11,8 +11,15 @@ env:
   - NODE_ENV: test
   - TRAVIS: true
 addons:
-  postgresql: '9.3'
+  postgresql: '11.5'
+before_install:
+  - sudo apt-get update
+  - sudo apt-get 
+  - sudo apt-get install -y postgresql-11 postgresql-client-11
+  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
+  - sudo service postgresql restart 11 
 before_script:
+  - psql --version
   - psql -c 'create database ts_api_test;' -U postgres
   - npm i -g sequelize-cli gulp-cli
   - cd server/
