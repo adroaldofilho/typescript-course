@@ -30,7 +30,7 @@ gulp.task('copy-migration-config', function(){
 
 gulp.task('build', function(){
     return gulp 
-            .src('server/migrations')
+            .src('server/migrations/*')
             .pipe(gulp.dest('dist/server/migrations'))
 });
 
