@@ -18,8 +18,25 @@ gulp.task('clean', function(){
 gulp.task('copy-opts', function(){
     return gulp 
             .src('tests/unit/config/mocha.opts')
-            .pipe(gulp.dest('dist/tests/unit/config'))
+            .pipe(gulp.dest('dist/tests/unit/config'))  
             .pipe(gulp.dest('dist/tests/integration/config'))
 });
 
-gulp.task('default', gulp.series('clean', 'compile', 'copy-opts'));
+gulp.task('copy-migration-config', function(){
+    return gulp 
+            .src('server/config/config.json')
+            .pipe(gulp.dest('dist/server/config'))
+});
+
+gulp.task('build', function(){
+    return gulp 
+            .src('server/migrations/')
+            .pipe(gulp.dest('dist/server/migrations'))
+});
+
+gulp.task('default', gulp.series(
+            'clean', 
+            'compile', 
+            'copy-opts', 
+            'copy-migration-config', 
+            'build'));
