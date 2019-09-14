@@ -16,7 +16,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y postgresql-11 postgresql-client-11
   - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
-  - sudo service postgresql restart
+  - sudo systemctl restart postgresql.service
 before_script:
   - psql --version
   - psql -c "create database ts_api_test;" -U postgres
