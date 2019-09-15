@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var helpers_1 = require("./config/helpers");
 var service_1 = require("../../server/modules/User/service");
 var model = require('../../server/models');
-model.sequelize.sync().then(function () { });
+// model.sequelize.sync().then(() => {});
 describe('Testes Unitários do Service', function () {
     var email;
     var _id;

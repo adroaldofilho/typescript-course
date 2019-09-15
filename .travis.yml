@@ -25,5 +25,6 @@ before_script:
   - npm install
   - gulp
 script:
+  - npm run dbconfig
   - npm run unit-test
   - npm run integration-test
